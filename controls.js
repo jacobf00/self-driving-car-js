@@ -5,6 +5,8 @@ class Controls {
         this.right = false;
         this.reverse = false;
 
+        this.friction = .01;
+
         this.#addKeyboardListeners();
     }
 
@@ -23,8 +25,12 @@ class Controls {
                 case "ArrowDown":
                     this.reverse = true;
                     break;
+                case " ":
+                    this.friction = .1;
+                    break;
             }
-            console.table(this)
+            // console.table(this)
+            // console.log(event.key)
         }
         document.onkeyup = (event) => {
             switch (event.key) {
@@ -39,6 +45,9 @@ class Controls {
                     break;
                 case "ArrowDown":
                     this.reverse = false;
+                    break;
+                case " ":
+                    this.friction = .01;
                     break;
             }
         }
