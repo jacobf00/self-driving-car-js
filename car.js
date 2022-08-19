@@ -14,6 +14,8 @@ class Car {
 
         this.controls = new Controls();
 
+        this.sensor = new Sensor(this);
+
         this.friction = this.controls.friction;
     }
 
@@ -22,7 +24,8 @@ class Car {
         this.friction = this.controls.friction;
 
         //move car
-        this.#move()
+        this.#move();
+        this.sensor.update();
     }
 
     #move() {
@@ -84,5 +87,7 @@ class Car {
         context.fill();
 
         context.restore();
+
+        this.sensor.draw(context);
     }
 }
