@@ -19,13 +19,13 @@ class Car {
         this.friction = this.controls.friction;
     }
 
-    update() {
+    update(roadBorders) {
         // update friction
         this.friction = this.controls.friction;
 
         //move car
         this.#move();
-        this.sensor.update();
+        this.sensor.update(roadBorders);
     }
 
     #move() {
